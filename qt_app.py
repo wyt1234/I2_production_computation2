@@ -256,12 +256,15 @@ class CustomWindowsClient(WindowsClient, ):
         self._request_threadppool = None
 
     def set_button_click_event(self):
-        self.ui.toolButton.clicked.connect(lambda: run_fun_in_new_thread(self.choose_dir_from))
-        self.ui.toolButton_2.clicked.connect(lambda: run_fun_in_new_thread(self.choose_dir_to))  #
-        self.ui.pushButton_7.clicked.connect(lambda: run_fun_in_new_thread(self.openfolder))  # 打开资源管理器
-        self.ui.pushButton.clicked.connect(lambda: run_fun_in_new_thread(self.run_step2))
+        self.ui.toolButton.clicked.connect(self.choose_dir_from)
+        self.ui.toolButton_2.clicked.connect(self.choose_dir_to)
+        self.ui.pushButton_7.clicked.connect(self.openfolder)  # 打开资源管理器
+        # self.ui.pushButton.clicked.connect(lambda: run_fun_in_new_thread(self.run_step2))
+        self.ui.pushButton.clicked.connect(self.run_step2)  # todo 合并的步骤1不知道为啥就没法放到其他线程执行，主线程执行不闪退
         self.ui.pushButton_2.clicked.connect(lambda: run_fun_in_new_thread(self.run_step3))
+        # self.ui.pushButton_2.clicked.connect(self.run_step3)
         self.ui.pushButton_5.clicked.connect(lambda: run_fun_in_new_thread(self.run_step4))
+        # self.ui.pushButton_5.clicked.connect(self.run_step4)
 
         pass
 

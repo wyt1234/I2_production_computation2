@@ -5,3 +5,4 @@ PyQt5==5.15.6
 PyYAML==6.0
 requests==2.27.1
 tqdm==4.62.3
+openpyxl
