@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>903</width>
-    <height>397</height>
+    <width>895</width>
+    <height>657</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -31,7 +31,7 @@
    <property name="geometry">
     <rect>
      <x>9</x>
-     <y>154</y>
+     <y>424</y>
      <width>741</width>
      <height>221</height>
     </rect>
@@ -46,7 +46,7 @@
    <property name="geometry">
     <rect>
      <x>772</x>
-     <y>340</y>
+     <y>610</y>
      <width>120</width>
      <height>23</height>
     </rect>
@@ -73,7 +73,7 @@
    <property name="geometry">
     <rect>
      <x>772</x>
-     <y>300</y>
+     <y>570</y>
      <width>120</width>
      <height>23</height>
     </rect>
@@ -100,7 +100,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>710</x>
-     <y>26</y>
+     <y>86</y>
      <width>47</width>
      <height>22</height>
     </rect>
@@ -113,7 +113,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>25</y>
+     <y>85</y>
      <width>471</width>
      <height>21</height>
     </rect>
@@ -131,7 +131,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>170</y>
      <width>161</width>
      <height>31</height>
     </rect>
@@ -149,7 +149,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>110</y>
+     <y>170</y>
      <width>191</width>
      <height>31</height>
     </rect>
@@ -167,7 +167,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>110</y>
+     <y>170</y>
      <width>241</width>
      <height>31</height>
     </rect>
@@ -188,7 +188,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>630</x>
-     <y>110</y>
+     <y>170</y>
      <width>130</width>
      <height>31</height>
     </rect>
@@ -201,7 +201,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>710</x>
-     <y>66</y>
+     <y>126</y>
      <width>47</width>
      <height>22</height>
     </rect>
@@ -214,7 +214,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>66</y>
+     <y>126</y>
      <width>471</width>
      <height>20</height>
     </rect>
@@ -229,7 +229,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>26</y>
+     <y>86</y>
      <width>131</width>
      <height>21</height>
     </rect>
@@ -242,7 +242,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>56</y>
+     <y>116</y>
      <width>131</width>
      <height>41</height>
     </rect>
@@ -255,7 +255,7 @@ font: 9pt &quot;楷体&quot;;</string>
    <property name="geometry">
     <rect>
      <x>780</x>
-     <y>64</y>
+     <y>124</y>
      <width>101</width>
      <height>28</height>
     </rect>
@@ -267,6 +267,200 @@ font: 9pt &quot;楷体&quot;;</string>
    </property>
    <property name="text">
     <string>打开文件目录</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>240</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>338</y>
+     <width>101</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>打开文件目录</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>299</y>
+     <width>471</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_4">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>340</y>
+     <width>471</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>300</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>源文件：</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_3">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>340</y>
+     <width>47</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_4">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>300</y>
+     <width>47</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>330</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>保存目录：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>238</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>产能损失计算</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>30</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>30</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>产能切分</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>30</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>240</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>380</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开始计算产能损失</string>
    </property>
   </widget>
  </widget>

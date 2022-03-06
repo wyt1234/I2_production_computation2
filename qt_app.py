@@ -37,6 +37,7 @@ from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QLineEdit, QText
 import step2_gather
 import step3_by_pj
 import step4_by_pj_month
+import step7_wastage
 
 
 def my_excepthook(exc_type, exc_value, tb):
@@ -256,6 +257,7 @@ class CustomWindowsClient(WindowsClient, ):
         self._request_threadppool = None
 
     def set_button_click_event(self):
+        ############# 产能切分 ############
         self.ui.toolButton.clicked.connect(self.choose_dir_from)
         self.ui.toolButton_2.clicked.connect(self.choose_dir_to)
         self.ui.pushButton_7.clicked.connect(self.openfolder)  # 打开资源管理器
@@ -265,7 +267,11 @@ class CustomWindowsClient(WindowsClient, ):
         # self.ui.pushButton_2.clicked.connect(self.run_step3)
         self.ui.pushButton_5.clicked.connect(lambda: run_fun_in_new_thread(self.run_step4))
         # self.ui.pushButton_5.clicked.connect(self.run_step4)
-
+        ############ 产能损失 ###########
+        self.ui.toolButton_4.clicked.connect(self.choose_dir_from2)
+        self.ui.toolButton_3.clicked.connect(self.choose_dir_to2)
+        self.ui.pushButton_8.clicked.connect(self.openfolder2)  # 打开资源管理器
+        self.ui.pushButton_9.clicked.connect(lambda: run_fun_in_new_thread(self.run_step7))
         pass
 
     # 选择文件夹
@@ -286,9 +292,30 @@ class CustomWindowsClient(WindowsClient, ):
         self._save_all_input_box_value()
         return
 
+    # 选择文件3-1
+    def choose_dir_from2(self):
+        path = self.ui.lineEdit_3.text() if self.ui.lineEdit_3.text() else "C:/"
+        filename, filetype = QtWidgets.QFileDialog.getOpenFileName(None, "选取excel文件", os.getcwd())  # 文件
+        self.ui.lineEdit_3.setText(filename)
+        self._save_all_input_box_value()
+        return
+
+    # 选择文件夹3-2
+    def choose_dir_to2(self):
+        path = self.ui.lineEdit_4.text() if self.ui.lineEdit_4.text() else "C:/"
+        directory = QtWidgets.QFileDialog.getExistingDirectory(None, "选取文件夹", path)  # 路径
+        self.ui.lineEdit_4.setText(directory)
+        self._save_all_input_box_value()
+        return
+
     # 弹出资源管理器
     def openfolder(self):
         folder = self.ui.lineEdit_2.text() if self.ui.lineEdit_2.text() else "C:/"
+        os.startfile(folder)
+
+    # 弹出资源管理器2
+    def openfolder2(self):
+        folder = self.ui.lineEdit_4.text() if self.ui.lineEdit_4.text() else "C:/"
         os.startfile(folder)
 
     # 运行step2
@@ -309,6 +336,13 @@ class CustomWindowsClient(WindowsClient, ):
     def run_step4(self):
         if self.ui.lineEdit.text() and self.ui.lineEdit_2.text():
             step4_by_pj_month.run(dirs=self.ui.lineEdit_2.text())
+        else:
+            self.info('请选择源文件目录和保存目录')
+
+    # 运行产能损失 step7
+    def run_step7(self):
+        if self.ui.lineEdit_3.text() and self.ui.lineEdit_4.text():
+            step7_wastage.run(self.ui.lineEdit_3.text(), self.ui.lineEdit_4.text())
         else:
             self.info('请选择源文件目录和保存目录')
 
