@@ -133,6 +133,17 @@ def dimission(df: pandas.DataFrame):
     return df2
 
 
+# 旷工
+def absenteeism(df: pandas.DataFrame):
+    info('正在计算-旷工')
+    df2 = df[df['状态'].str.contains('旷工')].groupby(
+        ['分运营中心', '司龄', '状态', '当日产能', '当日应计产能']).size().reset_index().rename(
+        columns={0: '数量'})
+    df2 = append_loss(df2)
+    df2 = total_by_df(df2)
+    return df2
+
+
 # 总表
 def summary(df_list: list):
     state_list = ['病假', '产假', '待岗', '调休', '婚假', '年假', '培训期', '事假', '离职']
@@ -141,7 +152,7 @@ def summary(df_list: list):
         temp_df = df.loc['Total'][['损耗产能(总量)', '数量', '损耗金额(总量)']].to_frame().T
         temp_df = temp_df.reset_index(drop=True)
         temp_df['人天'] = temp_df['损耗产能(总量)'] / temp_df['数量'] * (300000 / 264)
-        temp_df['人月'] = temp_df['人天'] * 22
+        temp_df['人月'] = temp_df['人天'] / 22
         temp_df['状态'] = state_list.pop(0)
         temp_df_list.append(temp_df)
     df_summary = pd.concat(temp_df_list)
@@ -175,9 +186,11 @@ def run(wastage_from=None, save_path=None):
     df_training = training(df)
     df_affairs = affairs(df)
     df_dimission = dimission(df)
+    df_absenteeism = absenteeism(df)
     #
     df_summary = summary(
-        [df_sick, df_maternity, df_waiting, df_rest, df_marriage, df_annual, df_training, df_affairs, df_dimission])
+        [df_sick, df_maternity, df_waiting, df_rest, df_marriage, df_annual, df_training, df_affairs, df_dimission,
+         df_absenteeism])
     # 导出到一张excel
     with pd.ExcelWriter(os.path.join(save_path, '产能损耗统计表.xlsx')) as writer:
         df_summary.to_excel(writer, '总表', index=False)
@@ -190,6 +203,7 @@ def run(wastage_from=None, save_path=None):
         df_training.to_excel(writer, '培训期', index=False)
         df_affairs.to_excel(writer, '事假', index=False)
         df_dimission.to_excel(writer, '离职', index=False)
+        df_absenteeism.to_excel(writer, '旷工', index=False)
         writer.save()
     info('产能损失导出完成')
 
