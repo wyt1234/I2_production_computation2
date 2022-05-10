@@ -226,7 +226,7 @@ def run(wastage_from=None, save_path=None):
     center_name_list.sort()
     df_transverse = transverse(df_list, center_name_list)
     # 导出到一张excel
-    with pd.ExcelWriter(os.path.join(save_path, '产能损耗统计表_1-2月产能表.xlsx'), engine='xlsxwriter') as writer:
+    with pd.ExcelWriter(os.path.join(save_path, '产能损耗统计表.xlsx'), engine='xlsxwriter') as writer:
         good_format(df_summary).to_excel(writer, '总表', index=False)
         good_format(df_transverse).to_excel(writer, '分运营中心', index=False)
         good_format(df_sick).to_excel(writer, '病假', index=False)
