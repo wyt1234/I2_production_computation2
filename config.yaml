@@ -2,5 +2,5 @@ dirs:
   - D:\E盘仓库\产能数据核算\产能基础表20210117（253
   - D:\E盘仓库\产能数据核算\替换名单（155份）
 save: D:\F盘仓库\I2_production_computation\doc
-wastage_from: D:\Repo\I2_production_computation2\doc\wastage_by_state\1-3月产能表2.xlsx
-wastage_to: D:\Repo\I2_production_computation2\doc\wastage_by_state
+wastage_from: D:\上行\4月产能表（至28号）.xlsx
+wastage_to: D:\Repo\I2_production_computation2\doc\22020510\
