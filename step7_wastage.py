@@ -169,11 +169,12 @@ def summary(df_list: list):
         temp_df['状态'] = state_list.pop(0)
         temp_df_list.append(temp_df)
     df_summary = pd.concat(temp_df_list)
+    df_summary = df_summary[['状态', '人天', '人月', '数量', '损耗产能(总量)', '损耗金额(总量)']]
     return df_summary
 
 
 # 各个分运营中心横向统计
-def transverse(df_list: List[pandas.DataFrame], center_name_list: List):
+def transverse(df_list: List[pandas.DataFrame], center_name_list: List, df: pandas.DataFrame):
     dic_list = []
     state_list = ['病假', '产假', '待岗', '调休', '婚假', '年假', '培训期', '事假', '离职', '旷工']
     for i, center in enumerate(center_name_list):
@@ -183,6 +184,7 @@ def transverse(df_list: List[pandas.DataFrame], center_name_list: List):
             df2 = df_list[j]
             df3_amt_sum = df2[df2['分运营中心'] == center]['损耗产能(总量)'].sum()
             d[state] = df3_amt_sum
+        d['应计产能'] = df[df['分运营中心'] == center]['当日应计产能'].sum()
         dic_list.append(d)
     df_transverse = pd.DataFrame(dic_list)
     df_transverse = good_format(df_transverse, cols=state_list)
@@ -224,7 +226,7 @@ def run(wastage_from=None, save_path=None):
     # 各运营中心横向统计
     center_name_list = df['分运营中心'].unique().tolist()
     center_name_list.sort()
-    df_transverse = transverse(df_list, center_name_list)
+    df_transverse = transverse(df_list, center_name_list, df)
     # 导出到一张excel
     with pd.ExcelWriter(os.path.join(save_path, '产能损耗统计表.xlsx'), engine='xlsxwriter') as writer:
         good_format(df_summary).to_excel(writer, '总表', index=False)
